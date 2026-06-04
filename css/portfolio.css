@@ -2,12 +2,114 @@
 
   @import url('https://fonts.googleapis.com/css?family=Muli:300,700|Nunito');
 
-  body {
-    background: #000000;
+  /* body {
+    background: #1d1152;
     font-family: 'Nunito', sans-serif;
     overflow-x: hidden;
     padding-top: 70px;
+  } */
+
+   /*--------------------------------------
+      ANIMATED BACKGROUND 
+  ---------------------------------------*/
+  body {
+    /* main copied */
+    font-family: 'Nunito', sans-serif;
+    overflow-x: hidden;
+    padding-top: 70px;
+    /* done */
+    background: linear-gradient(
+    135deg,
+    #10124b 0%,
+    #000000 40%,
+    #412b02 100%
+  );
   }
+
+ .background {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+}
+
+.blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(120px);
+  opacity: 0.5;
+  animation: floatBlob 15s ease-in-out infinite;
+}
+
+.blob1 {
+  width: 400px;
+  height: 400px;
+  background: #3b82f6;
+  top: -100px;
+  left: -100px;
+}
+
+.blob2 {
+  width: 350px;
+  height: 350px;
+  background: #8b5cf6;
+  top: 40%;
+  right: -120px;
+}
+
+.blob3 {
+  width: 300px;
+  height: 300px;
+  background: #a855f7;
+  bottom: -100px;
+  left: 30%;
+}
+
+@keyframes floatBlob {
+  0% { transform: translate(0,0); }
+  50% { transform: translate(40px,-40px); }
+  100% { transform: translate(0,0); }
+}
+
+.floating-shape {
+  position: absolute;
+  backdrop-filter: blur(10px);
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 30px;
+  animation: drift 12s ease-in-out infinite;
+}
+
+.shape1 {
+  width: 250px;
+  height: 250px;
+  top: 15%;
+  left: 5%;
+}
+
+.shape2 {
+  width: 200px;
+  height: 200px;
+  top: 45%;
+  right: 10%;
+}
+
+.shape3 {
+  width: 300px;
+  height: 300px;
+  bottom: 5%;
+  left: 20%;
+}
+
+@keyframes drift {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-30px); }
+  100% { transform: translateY(0px); }
+}
+    /* -------------------------------------
+       THE END
+    -------------------------------------- */
+
 
   /* --------------------------------------------------------------
      TYPOGRAPHY
@@ -76,7 +178,7 @@ a:hover, a:active, a:focus {
 
 ::-webkit-scrrollbar-thumb {
     cursor: pointer;
-    background: #000000;
+    background: #02048db9;
 }
 
 .section-title {
@@ -177,8 +279,8 @@ TO BE ADDED:
     MENU
 --------------------------------------------------------------------------------------*/
 .custom-navbar {
-    background: #55555521;
-    border-top: 5px solid #75500a;
+    background: rgba(8, 24, 51, 0.45);
+    border-top: 5px solid #081833;
     border-bottom: 0;
     -webkit-box-shadow: 0 1px 30px rgba(0, 0, 0, 0.1);
     -moz-box-shadow: 0 1px 30px rgba(0, 0, 0, 0.1);
@@ -189,7 +291,7 @@ TO BE ADDED:
 }
 
 .custom-navbar .navbar-brand {
-    color: #75500a;
+    color: #f39f02;
     font-size: 18px;
     font-weight: bold;
     line-height: 40px;
@@ -229,13 +331,13 @@ TO BE ADDED:
   }
 
   .custom-navbar .nav li a:hover {
-    background-color: #29ca8e;
+    background-color: #1a047a;
     color: #75500a;
   }
   
   .custom-navbar .nav li.active > a {
-    background-color: #29ca8e;
-    color: #350bf0;
+    background-color: #2e023b;
+    color: #75500a;
   }
   
   .custom-navbar .navbar-toggle {
@@ -256,7 +358,7 @@ TO BE ADDED:
      HOME & SLIDER
   ------------------------------------------------------------------------------------- */
   #home {
-    paddding: 0;
+    padding: 0;
   }
 
   #home h1 {
@@ -314,4 +416,55 @@ TO BE ADDED:
   /* ---------------------------------------------------------------
      FEATURE 
   ------------------------------------------------------------------*/
-  
+  .feature-thumb {
+    border: 1px solid #f0f0f0;
+    padding: 5em 3em;
+  }
+
+  .feature-thumb span {
+    background: #75500a;
+    border-radius: 50px;
+    color: #ffffff;
+    font-size: 25px;
+    font-weight: bold;
+    display: inline-block;
+    width: 60px;
+    height: 60px;
+    line-height: 60px;
+    text-align: center;
+    margin-bottom: 5px;
+  }
+
+  .feature-thumb h3 {
+    margin: 10px 0;
+  }
+
+
+
+  /* -------------------------------------------------------------------------
+      ABOUT
+  --------------------------------------------------------------------------- */
+   #about figure {
+    display: inline-block;
+    vertical-align: top;
+    margin-left: 15px;
+  }
+
+  #about figure span {
+    float: left;
+    margin-left: -15px;
+    padding: 15px 20px;
+    position: relative;
+    top: 20px;
+  }
+
+  #about figure span i {
+    background: #0b2147;
+    border-radius: 50px;
+    color: #ffffff;
+    font-size: 25px;
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+  }
