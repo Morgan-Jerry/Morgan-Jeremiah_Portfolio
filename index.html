@@ -78,7 +78,23 @@
 
         </div>
     </section>
-    
+
+    <!-- MONTHLY BANNER -->
+     <div id="monthBanner" class="month-banner">
+
+    <h2 id="monthGreeting"></h2>
+
+    <span class="closeBanner">✖</span>
+
+    </div>
+
+    <!-- FLOATING TIME DISPLAY -->
+    <div id="clock"></div>
+
+    <!-- CONFETTI -->
+     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/dist/confetti.browser.min.js"></script>
+
+     
      <!-- HOME -->
       <section id="home">
         <div class="row">
@@ -89,7 +105,7 @@
                         <div class="caption">
                             <div class="container">
                                  <div class="col-md-6 col-sm-12">
-                                    <h1>HELLO</h1>
+                                    <h1 id="helloText"></h1>
                                     <h1>I'm Morgan Jeremiah <br> Aviator Violinist & Creative Professional</h1>
                                     <h3>Passionate about music, aviation, technology, and creating meaningful experiences. </h3>
                                     <a href="#feature" class="section-btn btn btn-default smoothScroll">Discover more</a>
@@ -286,16 +302,22 @@
 
                 <div class="col-md-offset-1 col-md-4 col-sm-12">
                     <div class="entry-form">
-                        <form action="#" method="post">
-                            <h2>Singup Now</h2>
+                        <form id="signupform">
+                            <h2>Signup Now</h2>
                             <input type="text" name="full name" class="form-control" placeholder="Full name" required="">
 
                             <input type="email" name="email" class="form-control" placeholder="Your email address" required="">
 
                             <input type="password" name="password" class="form-control" placeholder="Your Password" required="">
 
-                            <button class="submit-btn form-control" id="form-submit"><a href="https://morgan-jerry.github.io/MJX/index.html" target="_blank">Get Started</a></button>
+                            <button class="submit-btn form-control" id="form-submit">Get Started</a></button>
                         </form>
+                        <script>
+                            document.getElementById("signupform").addEventListener("submit", function(e) {
+                                e.preventDefault(); // Prevent form submission
+                                window.open("https://morgan-jerry.github.io/MJX/", "_blank"); // Open WhatsApp link in a new tab
+                            });
+                        </script>
                     </div>
                 </div>
             </div>
@@ -343,6 +365,6 @@
      <script src="js/owl.carousel.min.js"></script>
      <script src="js/smoothscroll.js"></script>
      <script src="js/custom.js"></script>
-
+     <script src="js/script.js"></script>
 </body>
 </html>
