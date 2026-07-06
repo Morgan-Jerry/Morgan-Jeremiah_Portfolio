@@ -22,6 +22,90 @@
 </head>
 <body id="top" data-spy="scroll" data-target=".navbar-collapse" data-offset="50">
 
+<!-- ========================================= -->
+<!-- PREMIUM FLIGHT PRELOADER -->
+<!-- ========================================= -->
+
+<div id="flightLoader">
+
+    <!-- Sky Background -->
+    <div class="loader-sky"></div>
+
+    <!-- Clouds -->
+    <div class="cloud cloud1"></div>
+    <div class="cloud cloud2"></div>
+    <div class="cloud cloud3"></div>
+
+    <!-- Runway -->
+    <div class="runway">
+
+        <div class="center-line"></div>
+
+        <div class="runway-lights">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+
+    </div>
+
+    <!-- Airplane -->
+    <div class="plane-wrapper">
+
+        <!-- SVG Plane -->
+        <svg class="plane" viewBox="0 0 512 512">
+
+            <path fill="white"
+            d="M476 3L211 167L0 143v48l148 65L92 348v40l116-20l268 141l36-32l-168-221L512 35z"/>
+
+        </svg>
+
+    </div>
+
+    <!-- Brand -->
+
+    <div class="loader-brand">
+
+        <h1>
+
+            AVIATOR
+
+            <span>VIOLINIST</span>
+
+        </h1>
+
+        <p id="loadingMessage">
+
+            Boarding Flight AV707...
+
+        </p>
+
+    </div>
+
+    <!-- Progress -->
+
+    <div class="loader-progress">
+
+        <div id="loaderBar"></div>
+
+    </div>
+
+    <div id="loaderPercent">
+
+        0%
+
+    </div>
+
+</div>
+
+<div id="siteContent">
+
+
     <!--MY ANIMATED BACKGROUND -->
      <div class="background">
         <div class="blob blob1"></div>
@@ -36,10 +120,10 @@
 
     <!-- PRE LOADER -->
     <section class="preloader">
-        <div class="spinner">
-            <span class="spinner-rotate"></span>
-        </div>
-    </section>
+    <div class="spinner">
+        <span class="spinner-rotate"></span>
+    </div>
+</section>
 
     <!-- MENU -->
     <section class="navbar custom-navbar navbar-fixed-top" role="navigation">
@@ -823,6 +907,9 @@
   <footer class="footer2">
     <p>copyright &copy; 2026 Aviator Violinist. All right reserved. | Designed by <span>Morgan Jeremiah</span></p>
   </footer>
+
+  
+</div>
 
 
   <!-- SCRIPTS -->

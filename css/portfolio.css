@@ -1436,3 +1436,529 @@ transform:rotate(360deg);
   .footer2 span {
     color: #75500a
   }
+
+
+/* ==========================================================
+   PREMIUM FLIGHT PRELOADER
+   Aviator Violinist
+========================================================== */
+
+#flightLoader{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100vh;
+    overflow:hidden;
+    background:linear-gradient(to bottom,#04142f,#081b3d,#0f2d61);
+    z-index:999999;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+}
+
+/* Hide website until loader finishes */
+
+#siteContent{
+    display:none;
+}
+
+/* =======================
+      SKY
+======================= */
+
+.loader-sky{
+    position:absolute;
+    inset:0;
+    background:
+    radial-gradient(circle at top,#2f80ed55,transparent 70%);
+}
+
+/* =======================
+      CLOUDS
+======================= */
+
+.cloud{
+
+    position:absolute;
+
+    background:white;
+
+    opacity:.18;
+
+    border-radius:100px;
+
+    filter:blur(2px);
+
+}
+
+.cloud::before,
+.cloud::after{
+
+content:"";
+
+position:absolute;
+
+background:white;
+
+border-radius:50%;
+
+}
+
+.cloud1{
+
+width:170px;
+
+height:55px;
+
+top:12%;
+
+left:-250px;
+
+animation:cloudMove 30s linear infinite;
+
+}
+
+.cloud1::before{
+
+width:80px;
+
+height:80px;
+
+left:20px;
+
+top:-35px;
+
+}
+
+.cloud1::after{
+
+width:90px;
+
+height:90px;
+
+right:20px;
+
+top:-45px;
+
+}
+
+.cloud2{
+
+width:140px;
+
+height:45px;
+
+top:28%;
+
+left:-200px;
+
+animation:cloudMove 42s linear infinite;
+
+animation-delay:4s;
+
+}
+
+.cloud2::before{
+
+width:70px;
+
+height:70px;
+
+left:15px;
+
+top:-30px;
+
+}
+
+.cloud2::after{
+
+width:70px;
+
+height:70px;
+
+right:10px;
+
+top:-28px;
+
+}
+
+.cloud3{
+
+width:200px;
+
+height:60px;
+
+top:18%;
+
+left:-300px;
+
+animation:cloudMove 55s linear infinite;
+
+animation-delay:8s;
+
+}
+
+.cloud3::before{
+
+width:95px;
+
+height:95px;
+
+left:20px;
+
+top:-40px;
+
+}
+
+.cloud3::after{
+
+width:95px;
+
+height:95px;
+
+right:25px;
+
+top:-42px;
+
+}
+
+@keyframes cloudMove{
+
+from{
+
+transform:translateX(0);
+
+}
+
+to{
+
+transform:translateX(calc(100vw + 500px));
+
+}
+
+}
+
+/* =======================
+      PLANE
+======================= */
+
+.plane-wrapper{
+
+position:absolute;
+
+bottom:170px;
+
+left:-180px;
+
+animation:takeoff 3.8s ease-in-out forwards;
+
+}
+
+.plane{
+
+width:90px;
+
+fill:white;
+
+filter:drop-shadow(0 0 20px rgba(255,255,255,.45));
+
+}
+
+@keyframes takeoff{
+
+0%{
+
+left:-180px;
+
+bottom:130px;
+
+transform:rotate(0deg);
+
+
+}
+
+50%{
+
+left:45%;
+
+bottom:130px;
+
+}
+
+70%{
+
+left:60%;
+
+bottom:180px;
+
+transform:rotate(-12deg);
+
+}
+
+100%{
+
+left:110%;
+
+bottom:420px;
+
+transform:rotate(-28deg);
+
+}
+
+}
+
+/* =======================
+      RUNWAY
+======================= */
+
+.runway{
+
+position:absolute;
+
+bottom:0;
+
+width:100%;
+
+height:150px;
+
+background:#1d1d1d;
+
+overflow:hidden;
+
+}
+
+.center-line{
+
+position:absolute;
+
+left:50%;
+
+top:0;
+
+transform:translateX(-50%);
+
+width:8px;
+
+height:100%;
+
+background:repeating-linear-gradient(
+to bottom,
+white 0,
+white 25px,
+transparent 25px,
+transparent 50px
+);
+
+opacity:.85;
+
+}
+
+.runway-lights{
+
+position:absolute;
+
+bottom:20px;
+
+display:flex;
+
+justify-content:space-evenly;
+
+width:100%;
+
+}
+
+.runway-lights span{
+
+width:8px;
+
+height:8px;
+
+background:#ffd54f;
+
+border-radius:50%;
+
+box-shadow:0 0 18px #ffd54f;
+
+animation:blink 1s infinite alternate;
+
+}
+
+.runway-lights span:nth-child(even){
+
+animation-delay:.5s;
+
+}
+
+@keyframes blink{
+
+from{
+
+opacity:.25;
+
+}
+
+to{
+
+opacity:1;
+
+}
+
+}
+
+/* =======================
+      BRAND
+======================= */
+
+.loader-brand{
+
+position:absolute;
+
+top:25%;
+
+text-align:center;
+
+color:white;
+
+}
+
+.loader-brand h1{
+
+font-size:55px;
+
+letter-spacing:8px;
+
+font-weight:700;
+
+margin:0;
+
+}
+
+.loader-brand h1 span{
+
+display:block;
+
+color:#56b4ff;
+
+}
+
+.loader-brand p{
+
+margin-top:18px;
+
+font-size:20px;
+
+opacity:.9;
+
+}
+
+/* =======================
+      PROGRESS
+======================= */
+
+.loader-progress{
+
+position:absolute;
+
+bottom:220px;
+
+width:340px;
+
+height:10px;
+
+border-radius:30px;
+
+background:rgba(255,255,255,.15);
+
+overflow:hidden;
+
+}
+
+#loaderBar{
+
+height:100%;
+
+width:0;
+
+background:linear-gradient(90deg,#4facfe,#00f2fe);
+
+border-radius:30px;
+
+}
+
+#loaderPercent{
+
+position:absolute;
+
+bottom:185px;
+
+color:white;
+
+font-size:18px;
+
+font-weight:bold;
+
+}
+
+/* =======================
+      MOBILE
+======================= */
+
+@media(max-width:768px){
+
+.loader-brand h1{
+
+font-size:34px;
+
+letter-spacing:4px;
+
+}
+
+.loader-brand p{
+
+font-size:16px;
+
+padding:0 25px;
+
+}
+
+.loader-progress{
+
+width:250px;
+
+}
+
+.plane{
+
+width:65px;
+
+}
+
+.runway{
+
+height:120px;
+
+}
+
+}
+
+@keyframes fadeSite{
+
+from{
+
+opacity:0;
+
+transform:translateY(20px);
+
+}
+
+to{
+
+opacity:1;
+
+transform:translateY(0);
+
+}
+
+}
