@@ -427,7 +427,7 @@ TO BE ADDED:
     animation: spinner .9s linear infinite;
   }
 
-  @-webkit-@keyframes spinner {
+  @-webkit-keyframes spinner {
     to {transform: rotate(360deg);}
   }
 
@@ -664,8 +664,8 @@ TO BE ADDED:
     height: 100%;
     object-fit: cover;
     /* gallery hover effect */
-    transition:.4s ease
     cursor: pointer;
+    transition:.4s ease
   }
 
   .gallery img:hover{
@@ -877,7 +877,7 @@ TO BE ADDED:
   -----------------------------------------*/
 
   #testimonial .item {
-    background color: #8b7e6150;
+    background-color: #8b7e6150;
     border: #83745367;
     margin: 20px 0;
     padding: 4em 3em;
@@ -985,8 +985,8 @@ TO BE ADDED:
   -----------------------------------------*/
 
   footer {
-    background color: #8b7e6150;
-    padding: 120px 0;
+   background-color: #8b7e6150;
+   padding: 120px 0;
   }
 
   footer .section-title {
