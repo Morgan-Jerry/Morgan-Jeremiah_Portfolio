@@ -2,6 +2,10 @@
 
   @import url('https://fonts.googleapis.com/css?family=Muli:300,700|Nunito');
 
+  body{
+    overflow:hidden;
+}
+
   /* body {
     background: #1d1152;
     font-family: 'Nunito', sans-serif;
@@ -1438,364 +1442,85 @@ transform:rotate(360deg);
   }
 
 
-/* ==========================================================
-   PREMIUM FLIGHT PRELOADER
-   Aviator Violinist
-========================================================== */
+
+
+
+/* PART 2A */
+/*=====================================================
+      AVIATOR VIOLINIST CINEMATIC PRELOADER
+======================================================*/
+
+/* Main Loader */
 
 #flightLoader{
     position:fixed;
-    top:0;
-    left:0;
+    inset:0;
     width:100%;
     height:100vh;
     overflow:hidden;
-    background:linear-gradient(to bottom,#04142f,#081b3d,#0f2d61);
-    z-index:999999;
     display:flex;
     justify-content:center;
     align-items:center;
     flex-direction:column;
+    background:#020611;
+    z-index:999999;
+    transition:opacity .8s ease;
 }
 
-/* Hide website until loader finishes */
+/* Hide website until loading finishes */
 
 #siteContent{
     display:none;
 }
 
-/* =======================
-      SKY
-======================= */
+/*=====================================================
+                    SKY
+======================================================*/
 
-.loader-sky{
+.sky{
     position:absolute;
     inset:0;
-    background:
-    radial-gradient(circle at top,#2f80ed55,transparent 70%);
+    overflow:hidden;
+    background:linear-gradient(
+        to bottom,
+        #020611 0%,
+        #07162f 40%,
+        #103b75 100%
+    );
 }
 
-/* =======================
-      CLOUDS
-======================= */
+/*=====================================================
+                    STARS
+======================================================*/
 
-.cloud{
+.stars{
 
     position:absolute;
+    inset:0;
 
-    background:white;
+    background-image:
 
-    opacity:.18;
+    radial-gradient(circle,#fff 1px,transparent 1px),
+    radial-gradient(circle,#ffffff 1.5px,transparent 1.5px),
+    radial-gradient(circle,#fff 2px,transparent 2px);
 
-    border-radius:100px;
+    background-size:
 
-    filter:blur(2px);
+    120px 120px,
+    180px 180px,
+    260px 260px;
 
-}
+    animation:twinkle 5s infinite alternate;
 
-.cloud::before,
-.cloud::after{
-
-content:"";
-
-position:absolute;
-
-background:white;
-
-border-radius:50%;
+    opacity:.8;
 
 }
 
-.cloud1{
-
-width:170px;
-
-height:55px;
-
-top:12%;
-
-left:-250px;
-
-animation:cloudMove 30s linear infinite;
-
-}
-
-.cloud1::before{
-
-width:80px;
-
-height:80px;
-
-left:20px;
-
-top:-35px;
-
-}
-
-.cloud1::after{
-
-width:90px;
-
-height:90px;
-
-right:20px;
-
-top:-45px;
-
-}
-
-.cloud2{
-
-width:140px;
-
-height:45px;
-
-top:28%;
-
-left:-200px;
-
-animation:cloudMove 42s linear infinite;
-
-animation-delay:4s;
-
-}
-
-.cloud2::before{
-
-width:70px;
-
-height:70px;
-
-left:15px;
-
-top:-30px;
-
-}
-
-.cloud2::after{
-
-width:70px;
-
-height:70px;
-
-right:10px;
-
-top:-28px;
-
-}
-
-.cloud3{
-
-width:200px;
-
-height:60px;
-
-top:18%;
-
-left:-300px;
-
-animation:cloudMove 55s linear infinite;
-
-animation-delay:8s;
-
-}
-
-.cloud3::before{
-
-width:95px;
-
-height:95px;
-
-left:20px;
-
-top:-40px;
-
-}
-
-.cloud3::after{
-
-width:95px;
-
-height:95px;
-
-right:25px;
-
-top:-42px;
-
-}
-
-@keyframes cloudMove{
+@keyframes twinkle{
 
 from{
 
-transform:translateX(0);
-
-}
-
-to{
-
-transform:translateX(calc(100vw + 500px));
-
-}
-
-}
-
-/* =======================
-      PLANE
-======================= */
-
-.plane-wrapper{
-
-position:absolute;
-
-bottom:170px;
-
-left:-180px;
-
-animation:takeoff 3.8s ease-in-out forwards;
-
-}
-
-.plane{
-
-width:90px;
-
-fill:white;
-
-filter:drop-shadow(0 0 20px rgba(255,255,255,.45));
-
-}
-
-@keyframes takeoff{
-
-0%{
-
-left:-180px;
-
-bottom:130px;
-
-transform:rotate(0deg);
-
-
-}
-
-50%{
-
-left:45%;
-
-bottom:130px;
-
-}
-
-70%{
-
-left:60%;
-
-bottom:180px;
-
-transform:rotate(-12deg);
-
-}
-
-100%{
-
-left:110%;
-
-bottom:420px;
-
-transform:rotate(-28deg);
-
-}
-
-}
-
-/* =======================
-      RUNWAY
-======================= */
-
-.runway{
-
-position:absolute;
-
-bottom:0;
-
-width:100%;
-
-height:150px;
-
-background:#1d1d1d;
-
-overflow:hidden;
-
-}
-
-.center-line{
-
-position:absolute;
-
-left:50%;
-
-top:0;
-
-transform:translateX(-50%);
-
-width:8px;
-
-height:100%;
-
-background:repeating-linear-gradient(
-to bottom,
-white 0,
-white 25px,
-transparent 25px,
-transparent 50px
-);
-
-opacity:.85;
-
-}
-
-.runway-lights{
-
-position:absolute;
-
-bottom:20px;
-
-display:flex;
-
-justify-content:space-evenly;
-
-width:100%;
-
-}
-
-.runway-lights span{
-
-width:8px;
-
-height:8px;
-
-background:#ffd54f;
-
-border-radius:50%;
-
-box-shadow:0 0 18px #ffd54f;
-
-animation:blink 1s infinite alternate;
-
-}
-
-.runway-lights span:nth-child(even){
-
-animation-delay:.5s;
-
-}
-
-@keyframes blink{
-
-from{
-
-opacity:.25;
+opacity:.35;
 
 }
 
@@ -1807,143 +1532,149 @@ opacity:1;
 
 }
 
-/* =======================
-      BRAND
-======================= */
+/*=====================================================
+                 SUNRISE
+======================================================*/
 
-.loader-brand{
+.sunrise{
 
 position:absolute;
 
-top:25%;
+left:50%;
 
-text-align:center;
+bottom:-250px;
 
-color:white;
+transform:translateX(-50%);
+
+width:650px;
+
+height:650px;
+
+border-radius:50%;
+
+background:
+
+radial-gradient(circle,
+
+rgba(255,191,0,.95),
+
+rgba(255,170,0,.35),
+
+transparent 72%
+
+);
+
+animation:sunrise 4.5s ease forwards;
+
+opacity:.2;
 
 }
 
-.loader-brand h1{
+@keyframes sunrise{
 
-font-size:55px;
+0%{
 
-letter-spacing:8px;
+bottom:-320px;
 
-font-weight:700;
-
-margin:0;
+opacity:.15;
 
 }
 
-.loader-brand h1 span{
+100%{
 
-display:block;
+bottom:-120px;
 
-color:#56b4ff;
+opacity:.95;
 
 }
 
-.loader-brand p{
+}
+
+/*=====================================================
+                 LOGO
+======================================================*/
+
+.loader-logo{
+
+position:absolute;
+
+top:12%;
+
+display:flex;
+
+flex-direction:column;
+
+align-items:center;
+
+animation:logoFade 1.4s ease;
+
+z-index:10;
+
+}
+
+#loaderLogo{
+
+width:150px;
+
+height:150px;
+
+object-fit:contain;
+
+border-radius:50%;
+
+box-shadow:
+
+0 0 25px rgba(255,215,0,.35),
+
+0 0 70px rgba(255,215,0,.20);
+
+animation:
+
+logoFloat 4s ease-in-out infinite;
+
+}
+
+.loader-logo h1{
 
 margin-top:18px;
 
-font-size:20px;
+font-size:44px;
 
-opacity:.9;
+font-weight:700;
 
-}
-
-/* =======================
-      PROGRESS
-======================= */
-
-.loader-progress{
-
-position:absolute;
-
-bottom:220px;
-
-width:340px;
-
-height:10px;
-
-border-radius:30px;
-
-background:rgba(255,255,255,.15);
-
-overflow:hidden;
-
-}
-
-#loaderBar{
-
-height:100%;
-
-width:0;
-
-background:linear-gradient(90deg,#4facfe,#00f2fe);
-
-border-radius:30px;
-
-}
-
-#loaderPercent{
-
-position:absolute;
-
-bottom:185px;
+letter-spacing:8px;
 
 color:white;
 
-font-size:18px;
+text-shadow:
 
-font-weight:bold;
-
-}
-
-/* =======================
-      MOBILE
-======================= */
-
-@media(max-width:768px){
-
-.loader-brand h1{
-
-font-size:34px;
-
-letter-spacing:4px;
+0 0 15px rgba(255,255,255,.3);
 
 }
 
-.loader-brand p{
+.loader-logo span{
 
-font-size:16px;
-
-padding:0 25px;
+color:#f5c542;
 
 }
 
-.loader-progress{
+.subtitle{
 
-width:250px;
+margin-top:10px;
 
-}
+font-size:17px;
 
-.plane{
+color:#dddddd;
 
-width:65px;
-
-}
-
-.runway{
-
-height:120px;
+letter-spacing:2px;
 
 }
 
-}
+/*=====================================================
+               LOGO ANIMATION
+======================================================*/
 
-@keyframes fadeSite{
+@keyframes logoFade{
 
 from{
 
@@ -1960,5 +1691,859 @@ opacity:1;
 transform:translateY(0);
 
 }
+
+}
+
+@keyframes logoFloat{
+
+0%{
+
+transform:translateY(0);
+
+}
+
+50%{
+
+transform:translateY(-10px);
+
+}
+
+100%{
+
+transform:translateY(0);
+
+}
+
+}
+
+/*=====================================================
+             FLIGHT BOARD
+======================================================*/
+
+.flight-board{
+
+position:absolute;
+
+top:53%;
+
+display:flex;
+
+flex-direction:column;
+
+align-items:center;
+
+padding:18px 28px;
+
+border-radius:15px;
+
+background:rgba(0,0,0,.28);
+
+backdrop-filter:blur(10px);
+
+border:1px solid rgba(255,255,255,.08);
+
+color:white;
+
+min-width:340px;
+
+}
+
+.flight-number{
+
+font-size:24px;
+
+font-weight:bold;
+
+color:#FFD700;
+
+margin-bottom:8px;
+
+}
+
+.destination{
+
+font-size:16px;
+
+margin-bottom:15px;
+
+opacity:.9;
+
+}
+
+#loadingMessage{
+
+font-size:18px;
+
+font-weight:600;
+
+color:white;
+
+text-align:center;
+
+min-height:30px;
+
+}
+
+/* PART 2B */
+/*=====================================================
+                CLOUDS
+======================================================*/
+
+.cloud{
+
+    position:absolute;
+
+    background:rgba(255,255,255,.18);
+
+    border-radius:100px;
+
+    filter:blur(2px);
+
+}
+
+.cloud::before,
+.cloud::after{
+
+content:"";
+
+position:absolute;
+
+background:inherit;
+
+border-radius:50%;
+
+}
+
+.cloud1{
+
+width:220px;
+
+height:65px;
+
+top:18%;
+
+left:-280px;
+
+animation:cloudMove1 38s linear infinite;
+
+}
+
+.cloud1::before{
+
+width:90px;
+
+height:90px;
+
+left:25px;
+
+top:-35px;
+
+}
+
+.cloud1::after{
+
+width:110px;
+
+height:110px;
+
+right:20px;
+
+top:-45px;
+
+}
+
+.cloud2{
+
+width:180px;
+
+height:55px;
+
+top:32%;
+
+left:-220px;
+
+animation:cloudMove2 50s linear infinite;
+
+animation-delay:5s;
+
+opacity:.22;
+
+}
+
+.cloud2::before{
+
+width:75px;
+
+height:75px;
+
+left:18px;
+
+top:-28px;
+
+}
+
+.cloud2::after{
+
+width:80px;
+
+height:80px;
+
+right:15px;
+
+top:-30px;
+
+}
+
+.cloud3{
+
+width:260px;
+
+height:70px;
+
+top:12%;
+
+left:-350px;
+
+animation:cloudMove3 65s linear infinite;
+
+animation-delay:10s;
+
+opacity:.15;
+
+}
+
+.cloud3::before{
+
+width:110px;
+
+height:110px;
+
+left:30px;
+
+top:-45px;
+
+}
+
+.cloud3::after{
+
+width:110px;
+
+height:110px;
+
+right:25px;
+
+top:-45px;
+
+}
+
+@keyframes cloudMove1{
+
+from{transform:translateX(0);}
+to{transform:translateX(calc(100vw + 600px));}
+
+}
+
+@keyframes cloudMove2{
+
+from{transform:translateX(0);}
+to{transform:translateX(calc(100vw + 500px));}
+
+}
+
+@keyframes cloudMove3{
+
+from{transform:translateX(0);}
+to{transform:translateX(calc(100vw + 700px));}
+
+}
+
+/*=====================================================
+                    RUNWAY
+======================================================*/
+
+.runway{
+
+position:absolute;
+
+bottom:0;
+
+width:100%;
+
+height:180px;
+
+background:linear-gradient(
+
+to bottom,
+
+#444,
+
+#222,
+
+#101010
+
+);
+
+overflow:hidden;
+
+}
+
+.center-line{
+
+position:absolute;
+
+left:50%;
+
+transform:translateX(-50%);
+
+width:10px;
+
+height:100%;
+
+background:repeating-linear-gradient(
+
+to bottom,
+
+white 0,
+
+white 35px,
+
+transparent 35px,
+
+transparent 70px
+
+);
+
+opacity:.9;
+
+}
+
+/*=====================================================
+                RUNWAY LIGHTS
+======================================================*/
+
+.runway-lights{
+
+position:absolute;
+
+bottom:22px;
+
+width:100%;
+
+display:flex;
+
+justify-content:space-evenly;
+
+}
+
+.runway-lights span{
+
+width:10px;
+
+height:10px;
+
+border-radius:50%;
+
+background:#FFD700;
+
+box-shadow:
+
+0 0 10px #FFD700,
+
+0 0 20px #FFD700,
+
+0 0 35px rgba(255,215,0,.6);
+
+animation:runwayBlink 1.2s infinite alternate;
+
+}
+
+.runway-lights span:nth-child(even){
+
+animation-delay:.6s;
+
+}
+
+@keyframes runwayBlink{
+
+from{
+
+opacity:.25;
+
+transform:scale(.8);
+
+}
+
+to{
+
+opacity:1;
+
+transform:scale(1.4);
+
+}
+
+}
+
+/*=====================================================
+                AIRCRAFT
+======================================================*/
+
+.plane-wrapper{
+
+position:absolute;
+
+bottom:120px;
+
+left:-240px;
+
+z-index:20;
+
+animation:planeTakeoff 4.5s ease forwards;
+
+}
+
+.plane{
+
+width:170px;
+
+height:auto;
+
+filter:
+
+drop-shadow(0 0 12px rgba(255,255,255,.4))
+
+drop-shadow(0 0 35px rgba(255,255,255,.25));
+
+}
+
+/*=====================================================
+             AIRCRAFT SHADOW
+======================================================*/
+
+.plane-wrapper::after{
+
+content:"";
+
+position:absolute;
+
+left:20px;
+
+top:75px;
+
+width:130px;
+
+height:18px;
+
+background:rgba(0,0,0,.35);
+
+filter:blur(8px);
+
+border-radius:50%;
+
+animation:shadowMove 4.5s ease forwards;
+
+}
+
+@keyframes shadowMove{
+
+0%{
+
+transform:scale(1);
+
+opacity:.55;
+
+}
+
+100%{
+
+transform:scale(.35);
+
+opacity:0;
+
+}
+
+}
+
+/*=====================================================
+             TAKEOFF ANIMATION
+======================================================*/
+
+@keyframes planeTakeoff{
+
+0%{
+
+left:-220px;
+
+bottom:115px;
+
+transform:rotate(0deg);
+
+}
+
+35%{
+
+left:25%;
+
+bottom:115px;
+
+transform:rotate(0deg);
+
+}
+
+55%{
+
+left:48%;
+
+bottom:120px;
+
+transform:rotate(-6deg);
+
+}
+
+72%{
+
+left:68%;
+
+bottom:190px;
+
+transform:rotate(-16deg);
+
+}
+
+85%{
+
+left:88%;
+
+bottom:320px;
+
+transform:rotate(-24deg);
+
+}
+
+100%{
+
+left:115%;
+
+bottom:520px;
+
+transform:rotate(-32deg);
+
+}
+
+}
+
+/* LAST PART */
+/*=====================================================
+                PROGRESS SECTION
+======================================================*/
+
+.loader-progress{
+
+    position:absolute;
+
+    bottom:245px;
+
+    width:360px;
+
+    height:12px;
+
+    background:rgba(255,255,255,.15);
+
+    border-radius:50px;
+
+    overflow:hidden;
+
+    border:1px solid rgba(255,215,0,.25);
+
+    box-shadow:
+        inset 0 0 12px rgba(0,0,0,.4),
+        0 0 15px rgba(255,215,0,.15);
+
+}
+
+#loaderBar{
+
+    width:0;
+
+    height:100%;
+
+    border-radius:50px;
+
+    background:linear-gradient(
+        90deg,
+        #FFD700,
+        #FFC107,
+        #FFB300
+    );
+
+    box-shadow:
+        0 0 12px #FFD700,
+        0 0 28px rgba(255,215,0,.6);
+
+}
+
+#loaderPercent{
+
+    position:absolute;
+
+    bottom:210px;
+
+    color:#ffffff;
+
+    font-size:22px;
+
+    font-weight:700;
+
+    letter-spacing:2px;
+
+    text-shadow:
+        0 0 10px rgba(255,255,255,.4);
+
+}
+
+/*=====================================================
+              GOLD GLOW EFFECTS
+======================================================*/
+
+.loader-logo::after{
+
+    content:"";
+
+    position:absolute;
+
+    inset:-20px;
+
+    border-radius:50%;
+
+    background:radial-gradient(
+        circle,
+        rgba(255,215,0,.18),
+        transparent 70%
+    );
+
+    animation:logoGlow 3s ease-in-out infinite;
+
+    z-index:-1;
+
+}
+
+@keyframes logoGlow{
+
+    0%{
+
+        transform:scale(.9);
+
+        opacity:.4;
+
+    }
+
+    50%{
+
+        transform:scale(1.15);
+
+        opacity:1;
+
+    }
+
+    100%{
+
+        transform:scale(.9);
+
+        opacity:.4;
+
+    }
+
+}
+
+/*=====================================================
+                FADE WEBSITE
+======================================================*/
+
+@keyframes fadeSite{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(20px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+/*=====================================================
+             LOADER FADE OUT
+======================================================*/
+
+.loader-hide{
+
+    opacity:0;
+
+    visibility:hidden;
+
+    transition:all .8s ease;
+
+}
+
+/*=====================================================
+             MOBILE RESPONSIVE
+======================================================*/
+
+@media (max-width:992px){
+
+    .loader-logo h1{
+
+        font-size:36px;
+
+        letter-spacing:5px;
+
+    }
+
+    #loaderLogo{
+
+        width:120px;
+
+        height:120px;
+
+    }
+
+    .flight-board{
+
+        width:85%;
+
+        min-width:unset;
+
+    }
+
+    .loader-progress{
+
+        width:280px;
+
+    }
+
+    .plane{
+
+        width:130px;
+
+    }
+
+}
+
+@media (max-width:768px){
+
+    .loader-logo{
+
+        top:9%;
+
+    }
+
+    .subtitle{
+
+        font-size:14px;
+
+        text-align:center;
+
+        padding:0 20px;
+
+    }
+
+    .flight-board{
+
+        top:50%;
+
+        padding:15px;
+
+    }
+
+    .flight-number{
+
+        font-size:20px;
+
+    }
+
+    .destination{
+
+        font-size:14px;
+
+    }
+
+    #loadingMessage{
+
+        font-size:16px;
+
+    }
+
+    .loader-progress{
+
+        width:230px;
+
+        bottom:210px;
+
+    }
+
+    #loaderPercent{
+
+        bottom:175px;
+
+        font-size:18px;
+
+    }
+
+    .plane{
+
+        width:110px;
+
+    }
+
+    .runway{
+
+        height:150px;
+
+    }
+
+}
+
+@media (max-width:480px){
+
+    #loaderLogo{
+
+        width:95px;
+
+        height:95px;
+
+    }
+
+    .loader-logo h1{
+
+        font-size:26px;
+
+        letter-spacing:3px;
+
+    }
+
+    .subtitle{
+
+        font-size:12px;
+
+    }
+
+    .loader-progress{
+
+        width:180px;
+
+    }
+
+    .plane{
+
+        width:90px;
+
+    }
 
 }

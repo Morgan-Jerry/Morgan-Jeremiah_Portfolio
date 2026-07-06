@@ -264,27 +264,38 @@ if(e.key==="Escape")close.click();
 });
 
 
+// PART 3
 /* ==========================================================
-   PREMIUM FLIGHT PRELOADER
-   Aviator Violinist
+   AVIATOR VIOLINIST CINEMATIC PRELOADER
+   Final Version
 ========================================================== */
 
-window.addEventListener("load", function () {
+window.addEventListener("load", () => {
 
     const loader = document.getElementById("flightLoader");
     const site = document.getElementById("siteContent");
 
-    const progressBar = document.getElementById("loaderBar");
+    const bar = document.getElementById("loaderBar");
     const percent = document.getElementById("loaderPercent");
     const message = document.getElementById("loadingMessage");
+    const sunrise = document.querySelector(".sunrise");
+    const stars = document.querySelector(".stars");
 
     const messages = [
 
-        "🛂 Connecting to Control Tower...",
+        "🛂 Checking Passport...",
+
+        "🛃 Security Clearance...",
+
+        "📡 Connecting to Control Tower...",
 
         "🧳 Boarding Flight AV707...",
 
-        "🛫 Preparing for Takeoff...",
+        "🚪 Boarding Gate Closed...",
+
+        "🛫 Taxiing to Runway...",
+
+        "🛩 Cleared for Takeoff...",
 
         "☁️ Climbing to Cruising Altitude...",
 
@@ -293,63 +304,115 @@ window.addEventListener("load", function () {
     ];
 
     let progress = 0;
-    let stage = 0;
 
-    const loading = setInterval(function(){
+    let currentMessage = 0;
+
+    const timer = setInterval(() => {
 
         progress++;
 
-        progressBar.style.width = progress + "%";
+        bar.style.width = progress + "%";
 
-        percent.innerHTML = progress + "%";
+        percent.textContent = progress + "%";
 
-        if(progress === 20){
+        if(progress >= 10 && currentMessage === 0){
 
-            message.innerHTML = messages[1];
+            currentMessage++;
 
-        }
-
-        if(progress === 45){
-
-            message.innerHTML = messages[2];
+            message.textContent = messages[currentMessage];
 
         }
 
-        if(progress === 70){
+        if(progress >= 22 && currentMessage === 1){
 
-            message.innerHTML = messages[3];
+            currentMessage++;
 
-        }
-
-        if(progress === 92){
-
-            message.innerHTML = messages[4];
+            message.textContent = messages[currentMessage];
 
         }
 
-        if(progress >=100){
+        if(progress >= 35 && currentMessage === 2){
 
-            clearInterval(loading);
+            currentMessage++;
 
-            setTimeout(function(){
+            message.textContent = messages[currentMessage];
 
-                loader.style.opacity="0";
-                loader.style.transition="opacity .8s ease";
+        }
 
-                setTimeout(function(){
+        if(progress >= 50 && currentMessage === 3){
 
-                    loader.style.display="none";
+            currentMessage++;
 
-                    site.style.display="block";
+            message.textContent = messages[currentMessage];
 
-                    site.style.animation="fadeSite .8s ease";
+        }
 
-                },800);
+        if(progress >= 65 && currentMessage === 4){
+
+            currentMessage++;
+
+            message.textContent = messages[currentMessage];
+
+        }
+
+        if(progress >= 78 && currentMessage === 5){
+
+            currentMessage++;
+
+            message.textContent = messages[currentMessage];
+
+        }
+
+        if(progress >= 90 && currentMessage === 6){
+
+            currentMessage++;
+
+            message.textContent = messages[currentMessage];
+
+        }
+
+        if(progress >= 98 && currentMessage === 7){
+
+            currentMessage++;
+
+            message.textContent = messages[currentMessage];
+
+        }
+
+        // Sunrise becomes brighter
+
+        if(progress > 60){
+
+            sunrise.style.opacity = "1";
+
+            stars.style.opacity = "0";
+
+        }
+
+        if(progress >= 100){
+
+            clearInterval(timer);
+
+            setTimeout(()=>{
+
+                loader.classList.add("loader-hide");
+
+                setTimeout(()=>{
+
+                    loader.remove();
+
+                    site.style.display = "block";
+
+                    site.style.animation = "fadeSite .9s ease forwards";
+
+                    document.body.style.overflow = "auto";
+
+                },900);
 
             },500);
 
         }
 
-    },35);
+    },40);
 
 });

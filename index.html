@@ -22,68 +22,62 @@
 </head>
 <body id="top" data-spy="scroll" data-target=".navbar-collapse" data-offset="50">
 
-<!-- ========================================= -->
-<!-- PREMIUM FLIGHT PRELOADER -->
-<!-- ========================================= -->
+<!-- ==========================================================
+     AVIATOR VIOLINIST CINEMATIC PRELOADER
+=========================================================== -->
 
 <div id="flightLoader">
 
-    <!-- Sky Background -->
-    <div class="loader-sky"></div>
+    <!-- Sky -->
+    <div class="sky">
+        <div class="stars"></div>
+        <div class="sunrise"></div>
+    </div>
 
     <!-- Clouds -->
     <div class="cloud cloud1"></div>
     <div class="cloud cloud2"></div>
     <div class="cloud cloud3"></div>
 
-    <!-- Runway -->
-    <div class="runway">
+    <!-- Logo -->
+    <div class="loader-logo">
 
-        <div class="center-line"></div>
+        <img src="./images/favicon.png"
+             alt="Aviator Violinist Logo"
+             id="loaderLogo">
 
-        <div class="runway-lights">
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-        </div>
+        <h1>AVIATOR <span>VIOLINIST</span></h1>
 
-    </div>
+        <p class="subtitle">
 
-    <!-- Airplane -->
-    <div class="plane-wrapper">
-
-        <!-- SVG Plane -->
-        <svg class="plane" viewBox="0 0 512 512">
-
-            <path fill="white"
-            d="M476 3L211 167L0 143v48l148 65L92 348v40l116-20l268 141l36-32l-168-221L512 35z"/>
-
-        </svg>
-
-    </div>
-
-    <!-- Brand -->
-
-    <div class="loader-brand">
-
-        <h1>
-
-            AVIATOR
-
-            <span>VIOLINIST</span>
-
-        </h1>
-
-        <p id="loadingMessage">
-
-            Boarding Flight AV707...
+            Professional Violinist • Aviation Enthusiast
 
         </p>
+
+    </div>
+
+    <!-- Flight Board -->
+
+    <div class="flight-board">
+
+        <div class="flight-number">
+
+            Flight AV707
+
+        </div>
+
+        <div class="destination">
+
+            Destination:
+            Portfolio Experience
+
+        </div>
+
+        <div id="loadingMessage">
+
+            Checking Passport...
+
+        </div>
 
     </div>
 
@@ -98,6 +92,44 @@
     <div id="loaderPercent">
 
         0%
+
+    </div>
+
+    <!-- Plane -->
+
+    <div class="plane-wrapper">
+
+        <svg
+        class="plane"
+        viewBox="0 0 640 512">
+
+        <path
+        fill="white"
+
+        d="M633 240L421 169L329 8L288 8L320 176L144 128L96 56L64 56L80 160L8 144L0 192L80 224L64 328L96 328L144 256L320 208L288 504L329 504L421 247L633 176Z"/>
+
+        </svg>
+
+    </div>
+
+    <!-- Runway -->
+
+    <div class="runway">
+
+        <div class="center-line"></div>
+
+        <div class="runway-lights">
+
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+
+        </div>
 
     </div>
 
@@ -119,11 +151,11 @@
 
 
     <!-- PRE LOADER -->
-    <section class="preloader">
+    <!-- <section class="preloader">
     <div class="spinner">
         <span class="spinner-rotate"></span>
     </div>
-</section>
+</section> -->
 
     <!-- MENU -->
     <section class="navbar custom-navbar navbar-fixed-top" role="navigation">
